@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 505633118}
   - component: {fileID: 505633120}
   - component: {fileID: 505633119}
+  - component: {fileID: 505633121}
   m_Layer: 5
   m_Name: Cat
   m_TagString: Untagged
@@ -527,6 +528,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505633117}
   m_CullTransparentMesh: 1
+--- !u!114 &505633121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505633117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8ef39026eeec2e4789ba0c8bb1cab31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UISpriteAnimator
+  targetImage: {fileID: 505633119}
+  sprites:
+  - {fileID: 6399713482583888257, guid: c53cb0cf29588a342bc2cb0c933b0f9b, type: 3}
+  - {fileID: -6320839872001503071, guid: c53cb0cf29588a342bc2cb0c933b0f9b, type: 3}
+  - {fileID: -2336946726686963249, guid: c53cb0cf29588a342bc2cb0c933b0f9b, type: 3}
+  - {fileID: -5942261528410848930, guid: c53cb0cf29588a342bc2cb0c933b0f9b, type: 3}
+  - {fileID: -5693490482969841910, guid: c53cb0cf29588a342bc2cb0c933b0f9b, type: 3}
+  - {fileID: 4022715284249148643, guid: c53cb0cf29588a342bc2cb0c933b0f9b, type: 3}
+  - {fileID: -3155648580880682073, guid: c53cb0cf29588a342bc2cb0c933b0f9b, type: 3}
+  - {fileID: -6729270872534498902, guid: c53cb0cf29588a342bc2cb0c933b0f9b, type: 3}
+  - {fileID: 4409800248101909182, guid: c53cb0cf29588a342bc2cb0c933b0f9b, type: 3}
+  - {fileID: 2947953320515529678, guid: c53cb0cf29588a342bc2cb0c933b0f9b, type: 3}
+  - {fileID: -2815787467082745685, guid: c53cb0cf29588a342bc2cb0c933b0f9b, type: 3}
+  - {fileID: 73540696973003746, guid: c53cb0cf29588a342bc2cb0c933b0f9b, type: 3}
+  frameRate: 0.1
+  loop: 1
+  timer: 0
 --- !u!1 &646331095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,6 +1118,7 @@ GameObject:
   - component: {fileID: 1206865732}
   - component: {fileID: 1206865734}
   - component: {fileID: 1206865733}
+  - component: {fileID: 1206865735}
   m_Layer: 5
   m_Name: Dog
   m_TagString: Untagged
@@ -1152,6 +1183,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206865731}
   m_CullTransparentMesh: 1
+--- !u!114 &1206865735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206865731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8ef39026eeec2e4789ba0c8bb1cab31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UISpriteAnimator
+  targetImage: {fileID: 1206865733}
+  sprites:
+  - {fileID: 7318026150934268709, guid: e5cf9b18d21f56f4eb53121ed1ba8d03, type: 3}
+  - {fileID: -9164566253938264869, guid: e5cf9b18d21f56f4eb53121ed1ba8d03, type: 3}
+  - {fileID: -4403050059771872929, guid: e5cf9b18d21f56f4eb53121ed1ba8d03, type: 3}
+  - {fileID: 8825452380692855015, guid: e5cf9b18d21f56f4eb53121ed1ba8d03, type: 3}
+  - {fileID: 967217005132682154, guid: e5cf9b18d21f56f4eb53121ed1ba8d03, type: 3}
+  frameRate: 0.2
+  loop: 1
+  timer: 0
 --- !u!1 &1553121885
 GameObject:
   m_ObjectHideFlags: 0
