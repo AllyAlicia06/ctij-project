@@ -29,6 +29,7 @@ public class DogSpawner : MonoBehaviour
         foreach (var entry in wave.waveEntries)
             totalToSpawn += entry.spawnCount;
 
+        WaveProgressUI.Instance?.Setup(wave);
         StartCoroutine(SpawnRoutine());
         
         Debug.Log($"DogSpawner: starting wave {wave.waveName}, totalToSpawn = {totalToSpawn}");
@@ -45,7 +46,7 @@ public class DogSpawner : MonoBehaviour
                 SpawnDog(entry);
                 spawned++;
 
-                //WaveProgressUI.Instance?.OnDogSpawned(spawned, totalToSpawn);
+                WaveProgressUI.Instance?.OnDogSpawned(spawned, totalToSpawn);
                 yield return new WaitForSeconds(entry.spawnInterval);
             }
         }
@@ -67,7 +68,7 @@ public class DogSpawner : MonoBehaviour
     public void OnDogDied()
     {
         died++;
-        //WaveProgressUI.Instance?.OnDogDied(died, totalToSpawn);
+        WaveProgressUI.Instance?.OnDogDied(died, totalToSpawn);
 
         if (died >= totalToSpawn)
         {
