@@ -45,7 +45,9 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("GameManager: Start");
 
-        StartGame();
+        //StartGame();
+        Time.timeScale = 1f;
+        SetGameState(GameState.Pregame);
     }
 
     private void SetGameState(GameState newState)
@@ -56,12 +58,32 @@ public class GameManager : MonoBehaviour
         OnGameStateChanged?.Invoke(currentGameState);
     }
 
-    public void StartGame()
+    /*public void StartGame()
     {
         Debug.Log("GameManager: StartGame called");
 
         currentGameState = GameState.Pregame;
 
+        if (waveSet == null || waveSet.waves == null || waveSet.waves.Length == 0)
+        {
+            Debug.LogError("GameManager: WaveSet is not configured in the Inspector");
+            return;
+        }
+
+        if (dogSpawner == null)
+        {
+            Debug.LogError("GameManager: DogSpawner is not configured in the Inspector.");
+            return;
+        }
+
+        SetGameState(GameState.Playing);
+        StartWave(0);
+    }*/
+
+    public void StartGameFromPregame()
+    {
+        if (currentGameState != GameState.Pregame) return;
+        
         if (waveSet == null || waveSet.waves == null || waveSet.waves.Length == 0)
         {
             Debug.LogError("GameManager: WaveSet is not configured in the Inspector");
