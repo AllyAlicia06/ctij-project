@@ -31,6 +31,8 @@ public class GameUIManager : MonoBehaviour
 
     private void OnGameStateChanged(GameState state)
     {
+        Debug.Log(state);
+        
         if(pregameMenu != null) pregameMenu.SetActive(false);
         if(hudMenu != null) hudMenu.SetActive(true);
         if(pauseMenu != null) pauseMenu.SetActive(false);
@@ -76,6 +78,7 @@ public class GameUIManager : MonoBehaviour
 
     public void OnMainMenuButtonClicked()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 

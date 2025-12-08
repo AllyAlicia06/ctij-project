@@ -129,7 +129,10 @@ public class GameManager : MonoBehaviour
     {
         if (currentGameState == GameState.Lost || currentGameState == GameState.Won) return;
 
-        currentGameState = GameState.Lost;
+        Time.timeScale = 1f;
+        SetGameState(GameState.Lost);
+        
+        //currentGameState = GameState.Lost;
         Debug.Log("Game Over");
     }
 
@@ -137,7 +140,10 @@ public class GameManager : MonoBehaviour
     {
         if (currentGameState == GameState.Lost || currentGameState == GameState.Won) return;
 
-        currentGameState = GameState.Won;
+        Time.timeScale = 1f;
+        SetGameState(GameState.Won);
+        
+        //currentGameState = GameState.Won;
         Debug.Log("Game Won");
     }
 
