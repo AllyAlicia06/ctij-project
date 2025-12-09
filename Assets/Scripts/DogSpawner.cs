@@ -5,6 +5,10 @@ public class DogSpawner : MonoBehaviour
 {
     public Transform[] laneSpawnPoints;
     
+    //
+    public float moveDirection = -1f;
+    //
+    
     private bool isSpawning = false;
     
     private WaveConfig currentWave;
@@ -56,12 +60,29 @@ public class DogSpawner : MonoBehaviour
 
     private void SpawnDog(WaveEntry entry)
     {
+        if (laneSpawnPoints == null || laneSpawnPoints.Length == 0)
+        {
+            Debug.Log("laneSpawnPoints not assigned");
+            return;
+        }
+        
         //asta alege un lane random din cele pe care le avem
         var lane = laneSpawnPoints[Random.Range(0, laneSpawnPoints.Length)];
         
         //asta legit instantiaza clonele de caini
         var dogObj = Instantiate(entry.dogPrefab, lane.position, Quaternion.identity);
-
+        
+        var dog = dogObj.GetComponent<Dog>();
+        if (dog != null)
+        {
+            if (entry.dogData != null)
+            {
+                dog.Initialize(entry.dogData, moveDirection);
+            }
+            
+            dog.SetSpawner(this);
+        }
+        
         Debug.Log($"DogSpawner: spawned dog at {lane.name}");
     }
 

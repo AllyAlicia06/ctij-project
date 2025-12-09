@@ -14,11 +14,19 @@ public class WaveProgressUI : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        
         Instance = this;
     }
 
     public void Setup(WaveConfig wave)
     {
+        if (wave == null) return;
+        
         totalEnemies = 0;
         foreach (var entry in wave.waveEntries)
             totalEnemies += entry.spawnCount;
@@ -30,7 +38,7 @@ public class WaveProgressUI : MonoBehaviour
             waveSlider.value = 0;
         }
         
-        if(waveSlider == null)
+        if(waveSlider != null)
             waveNameLabel.text = wave.waveName;
 
         if (waveCountLabel != null)
