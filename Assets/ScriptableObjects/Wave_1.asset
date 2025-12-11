@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32957311cf9fb0c4ca58801704ae98f0, type: 3}
-  m_Name: Wave_01
+  m_Name: Wave_1
   m_EditorClassIdentifier: Assembly-CSharp::WaveConfig
-  waveName: Wave 1 test
+  waveName: 
   waveEntries:
-  - dogData: {fileID: 0}
-    dogPrefab: {fileID: 696776612735559655, guid: cfad9efc42273f542bab29b7fce80807, type: 3}
-    spawnCount: 5
-    spawnInterval: 1
+  - dogData: {fileID: 11400000, guid: 23f4050f260cdd549ba63e2a90b94515, type: 2}
+    dogPrefab: {fileID: 4712387156109697790, guid: e33d8aed91fecff429e7401df0c6811e, type: 3}
+    spawnCount: 3
+    spawnInterval: 5

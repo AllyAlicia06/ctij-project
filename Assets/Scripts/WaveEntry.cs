@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class WaveEntry : MonoBehaviour
+[System.Serializable]
+public class WaveEntry
 {
     public DogData dogData;
     public GameObject dogPrefab;

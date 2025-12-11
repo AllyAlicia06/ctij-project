@@ -1,12 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Dog : MonoBehaviour
 {
     [Header("DogData")]
-    private DogData dogData;
+    [SerializeField] DogData dogData;
     
     [Header("X End Position")] 
-    private float laneEndX = -10f;
+    [SerializeField]private float laneEndX = -10f;
 
     private float moveDirection = -1f;
     private float currentHealth;
@@ -80,6 +81,17 @@ public class Dog : MonoBehaviour
 
     public void ReachEndOfLane()
     {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.DogReachedEnd();
+        }
         
+        Die();
+    }
+
+    private void Die()
+    {
+        spawner?.OnDogDied();
+        Destroy(gameObject);
     }
 }

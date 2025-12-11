@@ -125,6 +125,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void DogReachedEnd()
+    {
+        if (currentGameState == GameState.Lost || currentGameState == GameState.Won)
+            return;
+        
+        Debug.Log("GameManager: DogReachedEnd, Game Over");
+        LoseGame();
+    }
+    
     public void LoseGame()
     {
         if (currentGameState == GameState.Lost || currentGameState == GameState.Won) return;
