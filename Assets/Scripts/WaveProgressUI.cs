@@ -7,8 +7,8 @@ public class WaveProgressUI : MonoBehaviour
 
     [Header("UI References")]
     public Slider waveSlider;
-    public Text waveNameLabel;
-    public Text waveCountLabel;
+    //public Text waveNameLabel;
+    //public Text waveCountLabel;
 
     private int totalEnemies;
 
@@ -38,11 +38,11 @@ public class WaveProgressUI : MonoBehaviour
             waveSlider.value = 0;
         }
         
-        if(waveSlider != null)
-            waveNameLabel.text = wave.waveName;
+        //if(waveSlider != null)
+            //waveNameLabel.text = wave.waveName;
 
-        if (waveCountLabel != null)
-            waveCountLabel.text = $"0 / {totalEnemies}";
+        //if (waveCountLabel != null)
+            //waveCountLabel.text = $"0 / {totalEnemies}";
     }
 
     public void OnDogSpawned(int spawned, int total)
@@ -50,8 +50,8 @@ public class WaveProgressUI : MonoBehaviour
         if(waveSlider != null)
             waveSlider.value = spawned;
         
-        if (waveCountLabel != null)
-            waveCountLabel.text = $"{spawned} / {totalEnemies}";
+        //if (waveCountLabel != null)
+            //waveCountLabel.text = $"{spawned} / {totalEnemies}";
     }
 
     public void OnDogDied(int died, int total)
@@ -59,8 +59,8 @@ public class WaveProgressUI : MonoBehaviour
         if (waveSlider != null)
             waveSlider.value = died;
         
-        if (waveCountLabel != null)
-            waveCountLabel.text = $"{died} / {totalEnemies}";
+        //if (waveCountLabel != null)
+            //waveCountLabel.text = $"{died} / {totalEnemies}";
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created

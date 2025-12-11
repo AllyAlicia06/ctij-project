@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32957311cf9fb0c4ca58801704ae98f0, type: 3}
   m_Name: Wave_1
   m_EditorClassIdentifier: Assembly-CSharp::WaveConfig
-  waveName: 
   waveEntries:
   - dogData: {fileID: 11400000, guid: 23f4050f260cdd549ba63e2a90b94515, type: 2}
     dogPrefab: {fileID: 4712387156109697790, guid: e33d8aed91fecff429e7401df0c6811e, type: 3}
-    spawnCount: 3
-    spawnInterval: 5
+    spawnCount: 1
+    spawnInterval: 2
+  - dogData: {fileID: 11400000, guid: a0ab85a548707174e91c911c49744702, type: 2}
+    dogPrefab: {fileID: 3500217907430608861, guid: 871c2ab09ef0df648b07264bf2660c95, type: 3}
+    spawnCount: 2
+    spawnInterval: 2

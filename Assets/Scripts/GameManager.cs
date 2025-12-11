@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
         currentWaveIndex = waveIndex;
         var wave = waveSet.waves[currentWaveIndex];
 
-        Debug.Log($"GameManager: StartWave({waveIndex}) - {wave.waveName}");
+        Debug.Log($"GameManager: StartWave({waveIndex})");
 
         waveProgressUI?.Setup(wave);
         dogSpawner.StartWave(wave);

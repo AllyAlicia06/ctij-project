@@ -36,7 +36,7 @@ public class DogSpawner : MonoBehaviour
         WaveProgressUI.Instance?.Setup(wave);
         StartCoroutine(SpawnRoutine());
         
-        Debug.Log($"DogSpawner: starting wave {wave.waveName}, totalToSpawn = {totalToSpawn}");
+        Debug.Log($"DogSpawner: starting wave, totalToSpawn = {totalToSpawn}");
     }
 
     private IEnumerator SpawnRoutine()
