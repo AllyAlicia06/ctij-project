@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3439777607de77b48a7562d8aa1276a0, type: 3}
+  m_Name: WhiteCat
+  m_EditorClassIdentifier: Assembly-CSharp::CatData
+  sprite: {fileID: 7514304632314381675, guid: 0027c0f1ad1cd3242b4285a5ed2861a7, type: 3}
+  catPrefab: {fileID: 8856195742200799892, guid: b43ccc13aec0e984fa44648257b340c0, type: 3}
+  cost: 0
+  elementType: 6
+  damage: 20
+  cooldown: 1
+  projectilePrefab: {fileID: 0}
+  projectileSpeed: 5
