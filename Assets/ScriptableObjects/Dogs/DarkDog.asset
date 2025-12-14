@@ -15,5 +15,5 @@ MonoBehaviour:
   sprite: {fileID: -6141455896513268206, guid: 6468e007ebc40fc4e9169122ada03c91, type: 3}
   elementType: 4
   maxHealth: 10
-  moveSpeed: 5
+  moveSpeed: 3
   baseDamage: 1

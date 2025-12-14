@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Wave_1
   m_EditorClassIdentifier: Assembly-CSharp::WaveConfig
   waveEntries:
+  - dogData: {fileID: 11400000, guid: 6d7059a3327f5c74891c92ee43cd4111, type: 2}
+    dogPrefab: {fileID: 897008886486687811, guid: 6553dd45432af3a4eb6dc7d3fd5cd489, type: 3}
+    spawnCount: 2
+    spawnInterval: 0.1
   - dogData: {fileID: 11400000, guid: 23f4050f260cdd549ba63e2a90b94515, type: 2}
     dogPrefab: {fileID: 4712387156109697790, guid: e33d8aed91fecff429e7401df0c6811e, type: 3}
     spawnCount: 1
@@ -21,3 +25,15 @@ MonoBehaviour:
     dogPrefab: {fileID: 3500217907430608861, guid: 871c2ab09ef0df648b07264bf2660c95, type: 3}
     spawnCount: 2
     spawnInterval: 2
+  - dogData: {fileID: 11400000, guid: 7bf87d32415c1724b8515534b98e78c8, type: 2}
+    dogPrefab: {fileID: 2153734266066785312, guid: 399e9886f18a650459864d7e3b4c0f81, type: 3}
+    spawnCount: 3
+    spawnInterval: 2
+  - dogData: {fileID: 11400000, guid: 8f6fea2276e1ac04ea0449f1cd76f6cb, type: 2}
+    dogPrefab: {fileID: 895608379834551032, guid: 16c5f064e7c1c644fb24867c896b5555, type: 3}
+    spawnCount: 2
+    spawnInterval: 1
+  - dogData: {fileID: 11400000, guid: 09c02f5808944e848996948280dd4d25, type: 2}
+    dogPrefab: {fileID: 5681191399294766886, guid: e4e8f798ee4625b48bfc57eef0e193f4, type: 3}
+    spawnCount: 2
+    spawnInterval: 0.1
