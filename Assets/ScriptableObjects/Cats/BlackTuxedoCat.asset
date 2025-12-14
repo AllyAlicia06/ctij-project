@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlackTuxedoCat
   m_EditorClassIdentifier: Assembly-CSharp::CatData
   sprite: {fileID: 1868587809387313323, guid: 492072d06e1c16048b2a3a3819e65fb2, type: 3}
-  catPrefab: {fileID: 7445988537653277694, guid: 73068835e6e55e2458c3cda51ef731cd, type: 3}
+  catPrefab: {fileID: 0}
   cost: 0
   elementType: 4
   damage: 15
