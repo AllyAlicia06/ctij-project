@@ -17,7 +17,7 @@ public class Tile : MonoBehaviour
     {
         goPlaced = null;
 
-        if (goPlaced != null && catPrefab == null) return false;
+        if (catPrefab == null) return false;
         
         Vector3 pos = collider != null ? (Vector3)collider.bounds.center : transform.position;
         pos.z = -1f;
