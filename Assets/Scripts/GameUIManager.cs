@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameUIManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GameUIManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject gameWonMenu;
     public GameObject gameOverMenu;
+
+    [Header("Coins")] [SerializeField] private Text coinsText; 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,6 +19,9 @@ public class GameUIManager : MonoBehaviour
         if (GameManager.Instance != null)
         {
             GameManager.Instance.OnGameStateChanged += this.OnGameStateChanged;
+
+            GameManager.Instance.OnCoinsChanged += this.OnCoinsChanged;
+            OnCoinsChanged(GameManager.Instance.Coins);
             
             OnGameStateChanged(GameManager.Instance.currentGameState);
         }
@@ -26,7 +32,14 @@ public class GameUIManager : MonoBehaviour
         if (GameManager.Instance != null)
         {
             GameManager.Instance.OnGameStateChanged -= this.OnGameStateChanged;
+            GameManager.Instance.OnCoinsChanged -= this.OnCoinsChanged;
         }
+    }
+
+    private void OnCoinsChanged(int coins)
+    {
+        if(coinsText != null) 
+            coinsText.text = coins.ToString();
     }
 
     private void OnGameStateChanged(GameState state)
@@ -82,6 +95,11 @@ public class GameUIManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void OnRetryButtonClicked()
+    {
+        SceneManager.LoadScene("SampleScene");   
+    }
+    
     // Update is called once per frame
     void Update()
     {

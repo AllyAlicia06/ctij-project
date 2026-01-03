@@ -1,5 +1,4 @@
 using System;
-using UnityEditor;
 using UnityEngine;
 
 public enum GameState
@@ -25,6 +24,11 @@ public class GameManager : MonoBehaviour
 
     private int currentWaveIndex = 0;
 
+    [Header("Coins")] [SerializeField] private int defaultCoins = 0;
+    public int Coins { get; private set;}
+    public event Action<int> OnCoinsChanged; //creeaza o actiune pe care o apelez cand se intampla ceva (cand apasam pe soricei)
+    
+
     private void Awake()
     {
         Debug.Log("GameManager: Awake");
@@ -47,9 +51,30 @@ public class GameManager : MonoBehaviour
 
         //StartGame();
         Time.timeScale = 1f;
+        Coins = defaultCoins;
+        OnCoinsChanged?.Invoke(Coins);
         SetGameState(GameState.Pregame);
     }
 
+    public void AddCoins(int amount)
+    {
+        if (amount <= 0)
+            return;
+        Coins += amount;
+        OnCoinsChanged?.Invoke(Coins);
+    }
+
+    public bool SpentCoins(int amount)
+    {
+        if (amount <= 0)
+            return true;
+        if (Coins < amount)
+            return false;
+        Coins -= amount;
+        OnCoinsChanged?.Invoke(Coins);
+        return true;
+    }
+    
     private void SetGameState(GameState newState)
     {
         if (currentGameState == newState) return;
