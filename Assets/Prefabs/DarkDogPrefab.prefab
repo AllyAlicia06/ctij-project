@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 8823156336674709706}
   - component: {fileID: 3873573175533410925}
   - component: {fileID: 6381728612224971380}
-  m_Layer: 0
+  - component: {fileID: -8822560094800362962}
+  m_Layer: 7
   m_Name: DarkDogPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,3 +129,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dog
   dogData: {fileID: 11400000, guid: 7bf87d32415c1724b8515534b98e78c8, type: 2}
   laneEndX: -7.5
+--- !u!61 &-8822560094800362962
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2153734266066785312}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.62, y: 0.57}
+    newSize: {x: 0.62, y: 0.57}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.62, y: 0.57}
+  m_EdgeRadius: 0

@@ -94,4 +94,13 @@ public class Dog : MonoBehaviour
         spawner?.OnDogDied();
         Destroy(gameObject);
     }
+
+    public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
 }
