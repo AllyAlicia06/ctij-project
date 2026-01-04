@@ -17,4 +17,10 @@ public class CatData : ScriptableObject
     [Header("Yarn Projectile")]
     public GameObject projectilePrefab;
     public float projectileSpeed = 5f;
+    
+    [Header("Special Shot")]
+    public int specialShotCount = 5;
+    public GameObject specialShotPrefab;
+    public float specialShotSpeed = 5f;
+    public float projectileDamage = 100f;
 }

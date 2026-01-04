@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -6,21 +7,22 @@ public class Projectile : MonoBehaviour
     private float damage;
     private Rigidbody2D rb;
 
-    [SerializeField] private float lifeTime = 5f; // safety auto-destroy
+    [SerializeField] private float lifeTime = 10f; 
+    [SerializeField] private bool pierce = false;
+    
+    private List<Dog> dogsHit = new List<Dog>();
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
     }
-
-    // Called by the cat right after Instantiate
+    
     public void Init(float projectileSpeed, float projectileDamage)
     {
         speed = projectileSpeed;
         damage = projectileDamage;
-
-        // Move to the right (+X)
+        
         rb.linearVelocity = Vector2.right * speed;
 
         Destroy(gameObject, lifeTime);
@@ -28,13 +30,24 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Hit dog (Dog component on same object or parent)
-        Dog dog = other.GetComponent<Dog>();
+        /*Dog dog = other.GetComponent<Dog>();
         if (dog == null) dog = other.GetComponentInParent<Dog>();
         if (dog == null) return;
 
-       // dog.TakeDamage(damage);
-        Destroy(gameObject);
+        dog.TakeDamage(damage);
+        Destroy(gameObject);*/
+        Dog dog = other.GetComponent<Dog>() ?? other.GetComponentInParent<Dog>();
+        if (dog == null) return;
+        
+        if (dogsHit.Contains(dog))
+            return;
+
+        dogsHit.Add(dog);
+
+        dog.TakeDamage(damage);
+        
+        if (!pierce)
+            Destroy(gameObject);
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created

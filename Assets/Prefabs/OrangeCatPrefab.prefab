@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7224711904362664798}
   - component: {fileID: -8135293522549205009}
   - component: {fileID: -3197804237433896697}
+  - component: {fileID: -4778941060879258853}
   m_Layer: 0
   m_Name: OrangeCatPrefab
   m_TagString: Untagged
@@ -113,3 +114,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-4778941060879258853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7284469704298226498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90f530d42985c1445a661fde63e98283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatShooting
+  catData: {fileID: 11400000, guid: 404e8be66ca706547bb7ff6a096bb281, type: 2}
+  dogLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  yTolerance: 0.25
+  scanRange: 50
+  firePoint: {fileID: 0}

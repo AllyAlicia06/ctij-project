@@ -5,7 +5,7 @@ public class CatShooting : MonoBehaviour
     [SerializeField] private CatData catData;
 
     [Header("Lane detection (no index)")]
-    [SerializeField] private LayerMask dogLayer;     // set to "Dog" layer
+    [SerializeField] private LayerMask dogLayer;    
     [SerializeField] private float yTolerance = 0.25f;
     [SerializeField] private float scanRange = 50f;
 
@@ -13,6 +13,7 @@ public class CatShooting : MonoBehaviour
     [SerializeField] private Transform firePoint;
 
     private float nextShootTime;
+    private int shotsFired = 0;
 
     private void Awake()
     {
@@ -28,8 +29,7 @@ public class CatShooting : MonoBehaviour
     {
         if (catData == null) return;
         if (catData.projectilePrefab == null) return;
-
-        // Optional: only shoot while playing
+        
         if (GameManager.Instance != null && GameManager.Instance.currentGameState != GameState.Playing)
             return;
 
@@ -43,8 +43,7 @@ public class CatShooting : MonoBehaviour
     private bool HasDogInMyLane()
     {
         Vector2 origin = firePoint.position;
-
-        // Look in front (+X) in a thin horizontal box around our Y
+        
         Vector2 center = origin + Vector2.right * (scanRange * 0.5f);
         Vector2 size = new Vector2(scanRange, yTolerance * 2f);
 
@@ -67,20 +66,35 @@ public class CatShooting : MonoBehaviour
         return false;
     }
 
+    private int normalShotsSinceSpecial = 0;
     private void Shoot()
-    {
-        GameObject go = Instantiate(catData.projectilePrefab, firePoint.position, Quaternion.identity);
+    {bool fireSpecial =
+            catData.specialShotCount > 0 &&
+            catData.specialShotPrefab != null &&
+            normalShotsSinceSpecial >= catData.specialShotCount;
 
-        Projectile proj = go.GetComponent<Projectile>();
-        if (proj != null)
+        if (fireSpecial)
         {
-            // assumes your Projectile has Init(speed, damage)
-            proj.Init(catData.projectileSpeed, catData.damage);
+            SpawnProjectile(catData.specialShotPrefab, catData.specialShotSpeed, catData.projectileDamage);
+            normalShotsSinceSpecial = 0; // reset AFTER special
         }
         else
         {
-            Debug.LogError("Projectile prefab is missing Projectile script.");
+            SpawnProjectile(catData.projectilePrefab, catData.projectileSpeed, catData.damage);
+            normalShotsSinceSpecial++;   // count ONLY normal shots
         }
+        
+    }
+
+    private void SpawnProjectile(GameObject prefab, float speed, float damage)
+    {
+        GameObject go = Instantiate(prefab, firePoint.position, Quaternion.identity);
+        
+        Projectile proj = go.GetComponent<Projectile>();
+        if (proj != null)
+            proj.Init(speed, damage);
+        else
+            Debug.LogError("Projectile prefab is missing Projectile script.");
     }
 
     private void OnDrawGizmosSelected()

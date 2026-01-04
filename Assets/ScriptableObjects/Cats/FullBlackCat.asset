@@ -16,7 +16,11 @@ MonoBehaviour:
   catPrefab: {fileID: 7330437788278597884, guid: 2bc74e0b6efcce54ba54b762a65bf74d, type: 3}
   cost: 15
   elementType: 7
-  damage: 20
+  damage: 5
   cooldown: 1
-  projectilePrefab: {fileID: 7277417003948087789, guid: d15b6bc71a649e947b5c1fd342f8d6f9, type: 3}
+  projectilePrefab: {fileID: 646043308673532357, guid: 3df8c32caff89294e817510434e4f37c, type: 3}
   projectileSpeed: 5
+  specialShotCount: 5
+  specialShotPrefab: {fileID: 4111831946315516320, guid: e477d0c00728d2844aad7d6a2cbf38cd, type: 3}
+  specialShotSpeed: 5
+  projectileDamage: 100

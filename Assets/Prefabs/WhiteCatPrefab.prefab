@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9141268951884417510}
   - component: {fileID: 8589550318827309256}
   - component: {fileID: 8159292433366411956}
+  - component: {fileID: -9061657857228246389}
   m_Layer: 0
   m_Name: WhiteCatPrefab
   m_TagString: Untagged
@@ -113,3 +114,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-9061657857228246389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8856195742200799892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90f530d42985c1445a661fde63e98283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatShooting
+  catData: {fileID: 11400000, guid: b8efc537733bd4347b472cffb5508a9e, type: 2}
+  dogLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  yTolerance: 0.25
+  scanRange: 50
+  firePoint: {fileID: 0}
