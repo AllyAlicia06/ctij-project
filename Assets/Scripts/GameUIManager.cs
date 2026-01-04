@@ -99,6 +99,11 @@ public class GameUIManager : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");   
     }
+
+    public void OnNextLevelButtonClicked()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
     
     // Update is called once per frame
     void Update()
