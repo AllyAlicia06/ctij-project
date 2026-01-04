@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CatData
   sprite: {fileID: 8568406016716633331, guid: 83348261383e30a4bb2a8d995d4a1fca, type: 3}
   catPrefab: {fileID: 7330437788278597884, guid: 2bc74e0b6efcce54ba54b762a65bf74d, type: 3}
-  cost: 0
+  cost: 15
   elementType: 7
   damage: 20
   cooldown: 1

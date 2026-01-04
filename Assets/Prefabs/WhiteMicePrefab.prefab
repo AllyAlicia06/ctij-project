@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5273036843560435251}
   - component: {fileID: 5897422704735813931}
   - component: {fileID: -8885943319900694611}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WhiteMicePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MouseManager
   moveSpeed: 1
   laneEndX: -8
+  coinValue: 5
 --- !u!61 &-8885943319900694611
 BoxCollider2D:
   m_ObjectHideFlags: 0

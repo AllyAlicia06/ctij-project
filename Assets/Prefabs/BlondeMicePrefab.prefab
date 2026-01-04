@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7177516037946121841}
   - component: {fileID: 8713770256593599053}
   - component: {fileID: 8377569589339878016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BlondeMicePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

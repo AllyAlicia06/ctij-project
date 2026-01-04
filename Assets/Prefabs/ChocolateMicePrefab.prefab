@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2034253118153211942}
   - component: {fileID: 7016580610819178950}
   - component: {fileID: -6830990271045821}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ChocolateMicePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

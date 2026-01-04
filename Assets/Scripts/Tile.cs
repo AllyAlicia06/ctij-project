@@ -19,10 +19,13 @@ public class Tile : MonoBehaviour
 
         if (catPrefab == null) return false;
         
+        if (isOccupied) return false;
+        
         Vector3 pos = collider != null ? (Vector3)collider.bounds.center : transform.position;
         pos.z = -1f;
         
         goPlaced = Instantiate(catPrefab, pos, Quaternion.identity);
+        goPlaced.transform.localScale =catPrefab.transform.localScale;
         placed = goPlaced;
         return true;
     }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3948868476827517656}
   - component: {fileID: 8555666394623062520}
   - component: {fileID: -723331710598339603}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LightGreyMicePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
