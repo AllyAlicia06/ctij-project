@@ -10,29 +10,18 @@ public class MiceSpawner : MonoBehaviour
     private GameObject[] micePrefabs;
     [SerializeField] 
     private Transform[] spawnPoints;
+
+    [SerializeField] private Transform[] stormSpawnPoints;
     
     [Header("Spawn Rates (seconds between spawns)")]
     [SerializeField] private float pregameInterval = 0.6f; // faster
     [SerializeField] private float playingInterval = 2.0f; // slower
     [SerializeField] private float otherStatesInterval = -1f; // < 0 = don't spawn
+    [SerializeField] private float stormInterval = 0.2f;
 
     private Coroutine spawnRoutine;
     private float currentInterval = -1f;
-
-  /*  private void OnEnable()
-    {
-        if (gameManager == null)
-            gameManager = GameManager.Instance;
-
-        if (gameManager != null)
-            gameManager.OnGameStateChanged += HandleGameStateChanged;
-
-        if (gameManager != null)
-            ApplyState(gameManager.currentGameState);
-        
-        if (gameManager == null)
-            Debug.Log("No game manager found");
-    }*/
+    private Transform[] activeSpawnPoints;
 
     private void OnDisable()
     {
@@ -46,26 +35,35 @@ public class MiceSpawner : MonoBehaviour
 
     private void ApplyState(GameState state)
     {
-        float desiredInterval = state switch
+        switch (state)
         {
-            GameState.Pregame => pregameInterval,
-            GameState.Playing => playingInterval,
-            _ => otherStatesInterval
-        };
+            case GameState.Pregame:
+                currentInterval = pregameInterval;
+                activeSpawnPoints = spawnPoints;
+                break;
 
-        // If nothing changed, do nothing
-        if (Mathf.Approximately(desiredInterval, currentInterval)) return;
+            case GameState.Playing:
+                currentInterval = playingInterval;
+                activeSpawnPoints = spawnPoints;
+                break;
 
-        currentInterval = desiredInterval;
+            case GameState.Storm:
+                currentInterval = stormInterval;
+                activeSpawnPoints = (stormSpawnPoints != null && stormSpawnPoints.Length > 0)
+                    ? stormSpawnPoints
+                    : spawnPoints; // fallback
+                break;
 
-        if (currentInterval < 0f)
-        {
+            default:
+                currentInterval = otherStatesInterval;
+                activeSpawnPoints = null;
+                break;
+        }
+        
+        if (currentInterval < 0f || activeSpawnPoints == null || activeSpawnPoints.Length == 0)
             StopSpawning();
-        }
         else
-        {
             RestartSpawning();
-        }
     }
 
     private void RestartSpawning()
@@ -93,10 +91,10 @@ public class MiceSpawner : MonoBehaviour
 
     private void SpawnOne()
     {
-        if (spawnPoints == null || spawnPoints.Length == 0) return;
+        if (activeSpawnPoints == null || activeSpawnPoints.Length == 0) return;
         if (micePrefabs == null || micePrefabs.Length == 0) return;
 
-        Transform p = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Transform p = activeSpawnPoints[Random.Range(0, activeSpawnPoints.Length)];
         GameObject prefab = micePrefabs[Random.Range(0, micePrefabs.Length)];
         Instantiate(prefab, p.position, p.rotation);
     }

@@ -13,6 +13,10 @@ public class GameUIManager : MonoBehaviour
 
     [Header("Coins")] [SerializeField] private Text coinsText; 
     
+    [Header("StormUI")] public GameObject stormUI;
+    
+    [SerializeField] private StormPhaseController stormPhaseController;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -46,6 +50,7 @@ public class GameUIManager : MonoBehaviour
     {
         Debug.Log(state);
         
+        if(stormUI != null) stormUI.SetActive(false);
         if(pregameMenu != null) pregameMenu.SetActive(false);
         if(hudMenu != null) hudMenu.SetActive(true);
         if(pauseMenu != null) pauseMenu.SetActive(false);
@@ -75,6 +80,12 @@ public class GameUIManager : MonoBehaviour
             case GameState.Lost:
                 if(hudMenu != null) hudMenu.SetActive(false);
                 if(gameOverMenu != null) gameOverMenu.SetActive(true);
+                break;
+            
+            case GameState.Storm:
+                if(hudMenu != null) hudMenu.SetActive(false);
+                if(stormUI != null) stormUI.SetActive(true);
+                stormPhaseController?.PlayStorm();
                 break;
         }
     }

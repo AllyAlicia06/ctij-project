@@ -5,6 +5,7 @@ public enum GameState
 {
     Pregame,
     Playing,
+    Storm,
     Paused,
     Won,
     Lost
@@ -140,16 +141,35 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("GameManager: Wave COMPLETED!");
 
+        int lastWaveIndex = waveSet.waves.Length - 1;
+
+        if (currentWaveIndex == lastWaveIndex - 1)
+        {
+            StartStormPhase();
+            return;
+        }
+
         if (currentWaveIndex >= waveSet.waves.Length - 1)
         {
             WinGame();
+            return;
         }
-        else
-        {
-            StartWave(currentWaveIndex + 1);
-        }
+        StartWave(currentWaveIndex + 1);
     }
 
+    private void StartStormPhase()
+    {
+        Time.timeScale = 1f;
+        SetGameState(GameState.Storm);
+    }
+
+    public void EndStormAndStartLastWave()
+    {
+        int lastWaveIndex = waveSet.waves.Length - 1;
+        SetGameState(GameState.Playing);
+        StartWave(lastWaveIndex);
+    }
+    
     public void DogReachedEnd()
     {
         if (currentGameState == GameState.Lost || currentGameState == GameState.Won)
