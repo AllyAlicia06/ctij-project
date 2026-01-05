@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8101779817728883500}
   - component: {fileID: 3386342372851780773}
   - component: {fileID: 5162463298861720327}
+  - component: {fileID: 3583432197273703101}
   m_Layer: 0
   m_Name: BrownCatProjectile
   m_TagString: Untagged
@@ -191,4 +192,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48ac131d303a15445b8411dfe5b81360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  lifeTime: 5
+  lifeTime: 10
+  pierce: 0
+  dealDamageOnHit: 0
+  destroyOnHit: 0
+--- !u!114 &3583432197273703101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7277417003948087789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293cc60b0e6e581449d8d278f3529093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StickyBomb
+  dogLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  fuse: 2
+  stunDuration: 1.5
+  slowRadius: 1.5
+  slowMultiplier: 0.5
+  slowDuration: 2

@@ -66,8 +66,20 @@ public class Dog : MonoBehaviour
 
     public void Move()
     {
-        Vector3 delta = Vector3.right * currentMoveSpeed * Time.deltaTime;
-        transform.Translate(delta, Space.World);
+        //Vector3 delta = Vector3.right * currentMoveSpeed * Time.deltaTime;
+        //transform.Translate(delta, Space.World);
+        var status = GetComponent<DogStatus>();
+        if (status != null)
+        {
+            if (status.IsStunned) return;
+
+            Vector3 delta = Vector3.right * (currentMoveSpeed * status.SpeedMultiplier) * Time.deltaTime;
+            transform.Translate(delta, Space.World);
+            return;
+        }
+
+        Vector3 fallback = Vector3.right * currentMoveSpeed * Time.deltaTime;
+        transform.Translate(fallback, Space.World);
     }
 
     public void CheckEndOfLane()

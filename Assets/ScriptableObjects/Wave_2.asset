@@ -15,5 +15,5 @@ MonoBehaviour:
   waveEntries:
   - dogData: {fileID: 11400000, guid: 23f4050f260cdd549ba63e2a90b94515, type: 2}
     dogPrefab: {fileID: 4712387156109697790, guid: e33d8aed91fecff429e7401df0c6811e, type: 3}
-    spawnCount: 2
-    spawnInterval: 3
+    spawnCount: 10
+    spawnInterval: 0.5

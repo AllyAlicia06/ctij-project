@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] private float lifeTime = 10f; 
     [SerializeField] private bool pierce = false;
+    [SerializeField] private bool dealDamageOnHit = true;
+    [SerializeField] private bool destroyOnHit = true;
     
     private List<Dog> dogsHit = new List<Dog>();
 
@@ -30,12 +32,6 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        /*Dog dog = other.GetComponent<Dog>();
-        if (dog == null) dog = other.GetComponentInParent<Dog>();
-        if (dog == null) return;
-
-        dog.TakeDamage(damage);
-        Destroy(gameObject);*/
         Dog dog = other.GetComponent<Dog>() ?? other.GetComponentInParent<Dog>();
         if (dog == null) return;
         
@@ -44,10 +40,12 @@ public class Projectile : MonoBehaviour
 
         dogsHit.Add(dog);
 
-        dog.TakeDamage(damage);
+        //dog.TakeDamage(damage);
         
-        if (!pierce)
-            Destroy(gameObject);
+        //if (!pierce) Destroy(gameObject);
+          
+        if (dealDamageOnHit) dog.TakeDamage(damage);
+        if (destroyOnHit && !pierce) Destroy(gameObject); 
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created

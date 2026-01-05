@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4206745810386455725}
   - component: {fileID: 2133434857337422577}
   - component: {fileID: 4013101421892899780}
+  - component: {fileID: 1566437577854962835}
   m_Layer: 0
   m_Name: SiameseCatProjectile
   m_TagString: Untagged
@@ -193,3 +194,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   lifeTime: 10
   pierce: 0
+  dealDamageOnHit: 1
+  destroyOnHit: 1
+--- !u!114 &1566437577854962835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5310024516051693860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 770bc31ba2fdbe5469e7bc5e46e1dd08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FreezeOnHit
+  slowMultiplier: 0.5
+  duration: 2
