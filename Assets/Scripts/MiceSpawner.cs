@@ -91,12 +91,25 @@ public class MiceSpawner : MonoBehaviour
 
     private void SpawnOne()
     {
+        /*if (activeSpawnPoints == null || activeSpawnPoints.Length == 0) return;
+        if (micePrefabs == null || micePrefabs.Length == 0) return;
+
+        Transform p = activeSpawnPoints[Random.Range(0, activeSpawnPoints.Length)];
+        GameObject prefab = micePrefabs[Random.Range(0, micePrefabs.Length)];
+        Instantiate(prefab, p.position, p.rotation);*/
+        
         if (activeSpawnPoints == null || activeSpawnPoints.Length == 0) return;
         if (micePrefabs == null || micePrefabs.Length == 0) return;
 
         Transform p = activeSpawnPoints[Random.Range(0, activeSpawnPoints.Length)];
         GameObject prefab = micePrefabs[Random.Range(0, micePrefabs.Length)];
-        Instantiate(prefab, p.position, p.rotation);
+
+        GameObject go = Instantiate(prefab, p.position, p.rotation);
+
+        var mm = go.GetComponent<MouseManager>();
+        if (mm != null)
+            mm.SetStorm(gameManager != null && gameManager.currentGameState == GameState.Storm);
+
     }
         
     // Start is called once before the first execution of Update after the MonoBehaviour is created

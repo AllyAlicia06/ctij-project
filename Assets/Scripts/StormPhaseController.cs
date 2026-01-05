@@ -26,12 +26,8 @@ public class StormPhaseController : MonoBehaviour
 
     private void OnEnable()
     {
-        if (GameManager.Instance == null || GameManager.Instance.currentGameState != GameState.Storm)
-            return;
         if (cloudGroupLeft != null) cloudGroupLeft.anchoredPosition = leftStart;
         if (cloudGroupRight != null) cloudGroupRight.anchoredPosition = rightStart;
-
-        if (miceSpawner != null) miceSpawner.enabled = false;
 
         PlayStorm();
     }

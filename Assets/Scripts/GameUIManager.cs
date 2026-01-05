@@ -52,7 +52,7 @@ public class GameUIManager : MonoBehaviour
         
         if(stormUI != null) stormUI.SetActive(false);
         if(pregameMenu != null) pregameMenu.SetActive(false);
-        if(hudMenu != null) hudMenu.SetActive(true);
+        if(hudMenu != null) hudMenu.SetActive(false); //din true am schimbat in false, vedem daca e bine
         if(pauseMenu != null) pauseMenu.SetActive(false);
         if(gameOverMenu != null) gameOverMenu.SetActive(false);
         if(gameWonMenu != null) gameWonMenu.SetActive(false);
@@ -60,6 +60,7 @@ public class GameUIManager : MonoBehaviour
         switch (state)
         {
             case GameState.Pregame:
+                if(hudMenu != null) hudMenu.SetActive(true);
                 if(pregameMenu != null) pregameMenu.SetActive(true);
                 break;
             
@@ -85,7 +86,6 @@ public class GameUIManager : MonoBehaviour
             case GameState.Storm:
                 if(hudMenu != null) hudMenu.SetActive(false);
                 if(stormUI != null) stormUI.SetActive(true);
-                stormPhaseController?.PlayStorm();
                 break;
         }
     }
