@@ -4,12 +4,16 @@ public class FreezeOnHit : MonoBehaviour
 {
     [SerializeField] private float slowMultiplier=0.5f;
     [SerializeField] private float duration=2.0f;
+    
+    [SerializeField] private ElementType elementType = ElementType.Frost;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Dog dog = other.GetComponent<Dog>()?? other.GetComponentInChildren<Dog>();
         if (dog==null) return;
 
+        if (dog.ElementType == elementType) return;
+        
         var status = dog.GetComponent<DogStatus>();
         if(status!=null) status.ApplySlow(slowMultiplier, duration);
     }

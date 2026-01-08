@@ -19,6 +19,8 @@ public class Dog : MonoBehaviour
     private bool hasReportedDeath;
     
     public DogData Data => dogData;
+    
+    public ElementType ElementType => dogData != null ? dogData.elementType : ElementType.None;
 
     private void Awake()
     {
@@ -110,7 +112,21 @@ public class Dog : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float amount, ElementType incomingElementType)
+    {
+        if (hasReportedDeath) return;
+
+        if (dogData != null && incomingElementType != ElementType.None &&
+            incomingElementType == dogData.elementType) return;
+        
+        currentHealth -= amount;
+        if (currentHealth <= 0f)
+        {
+            DieFromDamage();
+        }
+    }
+    
+    /*public void TakeDamage(float amount)
     {
         if (hasReportedDeath) return;
         
@@ -119,6 +135,11 @@ public class Dog : MonoBehaviour
         {
             DieFromDamage();
         }
+    }*/
+
+    public void TakeDamage(float amount)
+    {
+        TakeDamage(amount, ElementType.None);
     }
 
     public void SetFacingDirection(float direction)

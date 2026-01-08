@@ -48,11 +48,14 @@ public class StormPhaseController : MonoBehaviour
     {
         yield return MoveGroupsToCenter();
 
-        if (miceSpawner != null) miceSpawner.enabled = true;
+        //if (miceSpawner != null) miceSpawner.enabled = true;
 
         yield return new WaitForSeconds(stormDuration);
 
-        if (miceSpawner != null) miceSpawner.enabled = false;
+        //if (miceSpawner != null) miceSpawner.enabled = false;
+        
+        //am comentat liniile astea doua ca sa lasam soarecii sa se spawneze in orice wave
+        //daca le lasam, dupa storm nu se mai spawnau
 
         GameManager.Instance?.EndStormAndStartLastWave();
     }

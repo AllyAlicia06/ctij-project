@@ -13,6 +13,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] private bool destroyOnHit = true;
     
     private List<Dog> dogsHit = new List<Dog>();
+    
+    [SerializeField] private ElementType elementType =  ElementType.None;
 
     private void Awake()
     {
@@ -20,10 +22,11 @@ public class Projectile : MonoBehaviour
         rb.gravityScale = 0f;
     }
     
-    public void Init(float projectileSpeed, float projectileDamage)
+    public void Init(float projectileSpeed, float projectileDamage, ElementType element)
     {
         speed = projectileSpeed;
         damage = projectileDamage;
+        elementType = element;
         
         rb.linearVelocity = Vector2.right * speed;
 
@@ -40,7 +43,7 @@ public class Projectile : MonoBehaviour
 
         dogsHit.Add(dog);
         
-        if (dealDamageOnHit) dog.TakeDamage(damage);
+        if (dealDamageOnHit) dog.TakeDamage(damage,elementType);
         if (destroyOnHit && !pierce) Destroy(gameObject); 
     }
     

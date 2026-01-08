@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FireBurstOnHit : MonoBehaviour
@@ -8,6 +9,8 @@ public class FireBurstOnHit : MonoBehaviour
     [SerializeField] private float aoeDamage = 15f;
 
     private bool exploded = false;
+    
+    [SerializeField] private ElementType elementType = ElementType.Fire;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -27,7 +30,7 @@ public class FireBurstOnHit : MonoBehaviour
             Dog d = h.GetComponent<Dog>() ?? h.GetComponentInParent<Dog>();
             if (d == null) continue;
 
-            d.TakeDamage(aoeDamage);
+            d.TakeDamage(aoeDamage, elementType);
         }
 
         Destroy(gameObject);

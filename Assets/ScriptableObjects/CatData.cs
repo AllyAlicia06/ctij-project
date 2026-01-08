@@ -10,7 +10,7 @@ public class CatData : ScriptableObject
     public int cost = 0;
     
     [Header("Combat")]
-    public ElementType elementType;
+    public ElementType elementType =  ElementType.None;
     public float damage = 20f;
     public float cooldown = 1f;
     

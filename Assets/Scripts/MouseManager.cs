@@ -71,6 +71,13 @@ public class MouseManager : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (GameManager.Instance == null) return;
+
+        var s = GameManager.Instance.currentGameState;
+        if (s == GameState.Paused || s == GameState.Won ||  s == GameState.Lost) return;
+        
+        //am adaugat liniile de mai sus ca sa nu mai putem colecta soriceii cand jocul e paused sau won/lost
+        
         Collect();
     }
 

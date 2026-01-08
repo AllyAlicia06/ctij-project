@@ -1,3 +1,4 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PoisonTrailArea : MonoBehaviour
@@ -9,6 +10,8 @@ public class PoisonTrailArea : MonoBehaviour
     [SerializeField] private float tick = 0.25f;
 
     private float nextTickTime;
+    
+    [SerializeField] private ElementType elementType = ElementType.Poison;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,7 +28,7 @@ public class PoisonTrailArea : MonoBehaviour
         Dog dog = other.GetComponent<Dog>() ?? other.GetComponentInParent<Dog>();
         if (dog == null) return;
 
-        dog.TakeDamage(dps * tick);
+        dog.TakeDamage(dps * tick, elementType);
     }
     
     // Update is called once per frame

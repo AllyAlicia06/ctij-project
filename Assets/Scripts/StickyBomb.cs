@@ -15,6 +15,8 @@ public class StickyBomb : MonoBehaviour
     private Rigidbody2D rb;
     private bool stuck = false;
     private Dog stuckDog;
+    
+    [SerializeField] private ElementType elementType = ElementType.Earth;
 
     private void Awake()
     {
@@ -27,6 +29,8 @@ public class StickyBomb : MonoBehaviour
 
         Dog dog = other.GetComponent<Dog>() ?? other.GetComponentInParent<Dog>();
         if (dog == null) return;
+        
+        if(dog.ElementType == elementType) return;
 
         stuck = true;
         stuckDog = dog;
@@ -57,6 +61,8 @@ public class StickyBomb : MonoBehaviour
             Dog d = h.GetComponent<Dog>() ?? h.GetComponentInParent<Dog>();
             if (d == null) continue;
 
+            if (d.ElementType == elementType) continue;
+            
             var st = d.GetComponent<DogStatus>();
             if (st != null) st.ApplySlow(slowMultiplier, slowDuration);
         }

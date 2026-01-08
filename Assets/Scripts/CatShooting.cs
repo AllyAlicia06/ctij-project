@@ -92,7 +92,7 @@ public class CatShooting : MonoBehaviour
         
         Projectile proj = go.GetComponent<Projectile>();
         if (proj != null)
-            proj.Init(speed, damage);
+            proj.Init(speed, damage, catData.elementType);
         else
             Debug.LogError("Projectile prefab is missing Projectile script.");
     }
