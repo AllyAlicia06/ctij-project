@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 800059910228291175}
   - component: {fileID: 5033829776937718937}
   - component: {fileID: 6519951640410577735}
+  - component: {fileID: 3141232076318937321}
   m_Layer: 0
   m_Name: FullBlackCatProjectile
   m_TagString: Untagged
@@ -192,4 +193,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   lifeTime: 10
-  pierce: 0
+  pierce: 1
+  dealDamageOnHit: 0
+  destroyOnHit: 1
+--- !u!114 &3141232076318937321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646043308673532357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd5c2887950f5f4f9f867c74046dca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnPoisonTrail
+  poisonTrailPrefab: {fileID: 110723940210652755, guid: 126728dbe0ceecf43a8287c85264521b, type: 3}
+  spawnEvery: 0.12

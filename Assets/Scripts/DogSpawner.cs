@@ -5,9 +5,7 @@ public class DogSpawner : MonoBehaviour
 {
     public Transform[] laneSpawnPoints;
     
-    //
     public float moveDirection = -1f;
-    //
     
     private bool isSpawning = false;
     

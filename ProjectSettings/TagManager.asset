@@ -41,5 +41,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Trail
+    uniqueID: 1415653347
+    locked: 0
+  - name: Mice
+    uniqueID: 2295214393
+    locked: 0
+  - name: Dogs
+    uniqueID: 777186881
+    locked: 0
+  - name: Cats
+    uniqueID: 2613067489
+    locked: 0
   m_RenderingLayers:
   - Default

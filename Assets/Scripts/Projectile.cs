@@ -39,11 +39,7 @@ public class Projectile : MonoBehaviour
             return;
 
         dogsHit.Add(dog);
-
-        //dog.TakeDamage(damage);
         
-        //if (!pierce) Destroy(gameObject);
-          
         if (dealDamageOnHit) dog.TakeDamage(damage);
         if (destroyOnHit && !pierce) Destroy(gameObject); 
     }

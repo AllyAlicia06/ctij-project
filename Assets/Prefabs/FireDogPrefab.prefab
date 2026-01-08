@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 3187698979338003914}
   - component: {fileID: -1083321092692897106}
   - component: {fileID: -4032947752126221042}
+  - component: {fileID: -9017506316477210173}
+  - component: {fileID: 5786695473761717463}
+  - component: {fileID: 2566881457964478424}
   m_Layer: 7
   m_Name: FireDogPrefab
   m_TagString: Untagged
@@ -80,8 +83,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 777186881
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7736622989492849007, guid: f05904dc9b8acc54d8cda67227e0bb8a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -188,3 +191,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0a7ab70dd547748b9a2c74ab6fe1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DogStatus
+--- !u!50 &-9017506316477210173
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4712387156109697790}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &5786695473761717463
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4712387156109697790}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.31
+--- !u!114 &2566881457964478424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4712387156109697790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493f1732e2c40724fb4efbc1347a9670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DogConfusion
+  hitDamage: 50
+  hitCooldown: 0.5

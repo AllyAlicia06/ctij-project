@@ -51,7 +51,7 @@ public class MiceSpawner : MonoBehaviour
                 currentInterval = stormInterval;
                 activeSpawnPoints = (stormSpawnPoints != null && stormSpawnPoints.Length > 0)
                     ? stormSpawnPoints
-                    : spawnPoints; // fallback
+                    : spawnPoints;
                 break;
 
             default:
@@ -83,7 +83,6 @@ public class MiceSpawner : MonoBehaviour
     {
         while (true)
         {
-            // interval might change on state switch; loop uses latest value each time
             yield return new WaitForSeconds(currentInterval);
             SpawnOne();
         }
@@ -91,13 +90,6 @@ public class MiceSpawner : MonoBehaviour
 
     private void SpawnOne()
     {
-        /*if (activeSpawnPoints == null || activeSpawnPoints.Length == 0) return;
-        if (micePrefabs == null || micePrefabs.Length == 0) return;
-
-        Transform p = activeSpawnPoints[Random.Range(0, activeSpawnPoints.Length)];
-        GameObject prefab = micePrefabs[Random.Range(0, micePrefabs.Length)];
-        Instantiate(prefab, p.position, p.rotation);*/
-        
         if (activeSpawnPoints == null || activeSpawnPoints.Length == 0) return;
         if (micePrefabs == null || micePrefabs.Length == 0) return;
 

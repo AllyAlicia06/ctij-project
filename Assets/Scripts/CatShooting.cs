@@ -76,12 +76,12 @@ public class CatShooting : MonoBehaviour
         if (fireSpecial)
         {
             SpawnProjectile(catData.specialShotPrefab, catData.specialShotSpeed, catData.projectileDamage);
-            normalShotsSinceSpecial = 0; // reset AFTER special
+            normalShotsSinceSpecial = 0;
         }
         else
         {
             SpawnProjectile(catData.projectilePrefab, catData.projectileSpeed, catData.damage);
-            normalShotsSinceSpecial++;   // count ONLY normal shots
+            normalShotsSinceSpecial++;
         }
         
     }

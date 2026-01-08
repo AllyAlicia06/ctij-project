@@ -10,18 +10,13 @@ public class PregameCountdownUI : MonoBehaviour
     public Text countdownText;
 
     private float remaining;
-    private bool running = false;
+    private bool initialized;
 
-    private void OnEnable()
+    private void Awake()
     {
         remaining = duration;
-        running = true;
+        initialized = true;
         UpdateMenu();
-    }
-
-    private void OnDisable()
-    {
-        running = false;
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -33,14 +28,9 @@ public class PregameCountdownUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!running) return;
         if (GameManager.Instance == null) return;
-
-        if (GameManager.Instance.currentGameState != GameState.Pregame)
-        {
-            running = false;
-            return;
-        }
+        
+        if (GameManager.Instance.currentGameState != GameState.Pregame) return;
         
         remaining -= Time.deltaTime;
         if(remaining < 0f) remaining = 0f;
@@ -49,7 +39,6 @@ public class PregameCountdownUI : MonoBehaviour
 
         if (remaining <= 0f)
         {
-            running = false;
             GameManager.Instance.StartGameFromPregame();
         }
     }

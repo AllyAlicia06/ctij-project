@@ -12,8 +12,11 @@ public class Dog : MonoBehaviour
     private float moveDirection = -1f;
     private float currentHealth;
     private float currentMoveSpeed;
+    
     private SpriteRenderer spriteRenderer;
     private DogSpawner spawner;
+
+    private bool hasReportedDeath;
     
     public DogData Data => dogData;
 
@@ -66,20 +69,20 @@ public class Dog : MonoBehaviour
 
     public void Move()
     {
-        //Vector3 delta = Vector3.right * currentMoveSpeed * Time.deltaTime;
-        //transform.Translate(delta, Space.World);
         var status = GetComponent<DogStatus>();
-        if (status != null)
-        {
-            if (status.IsStunned) return;
+        if (status != null && status.IsStunned) return;
 
-            Vector3 delta = Vector3.right * (currentMoveSpeed * status.SpeedMultiplier) * Time.deltaTime;
-            transform.Translate(delta, Space.World);
-            return;
-        }
+        float multiplier = 1f;
+        if (status != null) multiplier *= status.SpeedMultiplier;
+        
+        var confusion = GetComponent<DogConfusion>();
+        if(confusion != null) multiplier *= confusion.SpeedMultiplier;
+        
+        float finalDirection = Mathf.Sign(currentMoveSpeed * multiplier);
+        SetFacingDirection(finalDirection);
 
-        Vector3 fallback = Vector3.right * currentMoveSpeed * Time.deltaTime;
-        transform.Translate(fallback, Space.World);
+        Vector3 delta = Vector3.right * (currentMoveSpeed * multiplier) * Time.deltaTime;
+        transform.Translate(delta, Space.World);
     }
 
     public void CheckEndOfLane()
@@ -92,27 +95,35 @@ public class Dog : MonoBehaviour
     }
 
     public void ReachEndOfLane()
-    {
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.DogReachedEnd();
-        }
+    { 
+        GameManager.Instance?.DogReachedEnd();
         
-        Die();
+        Destroy(gameObject);
     }
 
-    private void Die()
+    private void DieFromDamage()
     {
+        if (hasReportedDeath) return;
+        hasReportedDeath = true;
+        
         spawner?.OnDogDied();
         Destroy(gameObject);
     }
 
     public void TakeDamage(float amount)
     {
+        if (hasReportedDeath) return;
+        
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
-            Die();
+            DieFromDamage();
         }
+    }
+
+    public void SetFacingDirection(float direction)
+    {
+        if (spriteRenderer != null)
+            spriteRenderer.flipX = direction > 0f;
     }
 }

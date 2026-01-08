@@ -50,12 +50,10 @@ public class GameUIManager : MonoBehaviour
     {
         Debug.Log(state);
         
-        if(stormUI != null) stormUI.SetActive(false);
-        if(pregameMenu != null) pregameMenu.SetActive(false);
-        if(hudMenu != null) hudMenu.SetActive(false); //din true am schimbat in false, vedem daca e bine
-        if(pauseMenu != null) pauseMenu.SetActive(false);
-        if(gameOverMenu != null) gameOverMenu.SetActive(false);
-        if(gameWonMenu != null) gameWonMenu.SetActive(false);
+        pauseMenu?.SetActive(false);
+        gameWonMenu?.SetActive(false);
+        gameOverMenu?.SetActive(false);
+        stormUI?.SetActive(false);
 
         switch (state)
         {
@@ -66,11 +64,21 @@ public class GameUIManager : MonoBehaviour
             
             case GameState.Playing:
                 if(hudMenu != null) hudMenu.SetActive(true);
+                if(pregameMenu != null) pregameMenu.SetActive(false);
                 break;
             
             case GameState.Paused:
-                if(hudMenu != null) hudMenu.SetActive(false); //aici vedem daca true sau false
                 if(pauseMenu != null) pauseMenu.SetActive(true);
+                if (GameManager.Instance != null && GameManager.Instance.PreviousGameState == GameState.Pregame)
+                {
+                    if(pregameMenu != null) pregameMenu.SetActive(true);
+                    if(hudMenu != null) hudMenu.SetActive(false);
+                }
+                else
+                {
+                    if(pregameMenu != null) pregameMenu.SetActive(false);
+                    if(hudMenu != null) hudMenu.SetActive(false);
+                }
                 break;
             
             case GameState.Won:

@@ -29,20 +29,7 @@ public class MouseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        /*var GM = GameManager.Instance;
-        GameState state = GM != null ? GM.currentGameState : GameState.Playing;
-        if (state == GameState.Storm)
-        {
-            MoveDown();
-            CheckEndOfLane();
-        }
-        else
-        {
-            MoveLeft();
-            CheckEndOfLane();
-        }*/
-        
-        if (isStorming)
+         if (isStorming)
         {
             transform.Translate(Vector3.down * fallSpeed * Time.deltaTime, Space.World);
             if (transform.position.y <= laneEndY) Destroy(gameObject);

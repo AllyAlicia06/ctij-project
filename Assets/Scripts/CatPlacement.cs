@@ -62,7 +62,6 @@ public class CatPlacement : MonoBehaviour
         }
         
         Tile tile = col.GetComponent<Tile>();
-        //if (tile == null || tile.isOccupied) return;
 
         if (tile == null)
         {

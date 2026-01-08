@@ -21,6 +21,6 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2515283142021195674, guid: 9442ec9698101cc40baa191d72eefc68, type: 3}
   projectileSpeed: 5
   specialShotCount: 5
-  specialShotPrefab: {fileID: 4111831946315516320, guid: e477d0c00728d2844aad7d6a2cbf38cd, type: 3}
+  specialShotPrefab: {fileID: 0}
   specialShotSpeed: 5
   projectileDamage: 100

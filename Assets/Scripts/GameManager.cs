@@ -20,15 +20,19 @@ public class GameManager : MonoBehaviour
     public WaveProgressUI waveProgressUI;
 
     public GameState currentGameState { get; private set; } = GameState.Pregame;
+    private GameState previousGameState = GameState.Pregame;
+    public GameState PreviousGameState => previousGameState; //asta i ca sa nu se reseteze timer ul din pregame cand punem pauza
 
     public event Action<GameState> OnGameStateChanged;
 
     private int currentWaveIndex = 0;
 
     [Header("Coins")] [SerializeField] private int defaultCoins = 0;
+    
     public int Coins { get; private set;}
     public event Action<int> OnCoinsChanged; //creeaza o actiune pe care o apelez cand se intampla ceva (cand apasam pe soricei)
     
+    private bool IsGameEnded => currentGameState == GameState.Lost || currentGameState == GameState.Won; //asta e ca sa verificam daca s a terminat jocul, ca sa nu continue wave urile
 
     private void Awake()
     {
@@ -49,8 +53,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Debug.Log("GameManager: Start");
-
-        //StartGame();
+        
         Time.timeScale = 1f;
         Coins = defaultCoins;
         OnCoinsChanged?.Invoke(Coins);
@@ -84,28 +87,6 @@ public class GameManager : MonoBehaviour
         OnGameStateChanged?.Invoke(currentGameState);
     }
 
-    /*public void StartGame()
-    {
-        Debug.Log("GameManager: StartGame called");
-
-        currentGameState = GameState.Pregame;
-
-        if (waveSet == null || waveSet.waves == null || waveSet.waves.Length == 0)
-        {
-            Debug.LogError("GameManager: WaveSet is not configured in the Inspector");
-            return;
-        }
-
-        if (dogSpawner == null)
-        {
-            Debug.LogError("GameManager: DogSpawner is not configured in the Inspector.");
-            return;
-        }
-
-        SetGameState(GameState.Playing);
-        StartWave(0);
-    }*/
-
     public void StartGameFromPregame()
     {
         if (currentGameState != GameState.Pregame) return;
@@ -128,6 +109,8 @@ public class GameManager : MonoBehaviour
 
     private void StartWave(int waveIndex)
     {
+        if (IsGameEnded) return;
+        
         currentWaveIndex = waveIndex;
         var wave = waveSet.waves[currentWaveIndex];
 
@@ -139,6 +122,8 @@ public class GameManager : MonoBehaviour
 
     public void OnWaveCompleted()
     {
+        if(IsGameEnded) return;
+        
         Debug.Log("GameManager: Wave COMPLETED!");
 
         int lastWaveIndex = waveSet.waves.Length - 1;
@@ -154,17 +139,22 @@ public class GameManager : MonoBehaviour
             WinGame();
             return;
         }
+        
         StartWave(currentWaveIndex + 1);
     }
 
     private void StartStormPhase()
     {
+        if(IsGameEnded) return;
+        
         Time.timeScale = 1f;
         SetGameState(GameState.Storm);
     }
 
     public void EndStormAndStartLastWave()
     {
+        if(IsGameEnded) return;
+        
         int lastWaveIndex = waveSet.waves.Length - 1;
         SetGameState(GameState.Playing);
         StartWave(lastWaveIndex);
@@ -183,10 +173,10 @@ public class GameManager : MonoBehaviour
     {
         if (currentGameState == GameState.Lost || currentGameState == GameState.Won) return;
 
-        Time.timeScale = 1f;
         SetGameState(GameState.Lost);
+        Time.timeScale = 0f;
+        dogSpawner?.StopAllCoroutines();
         
-        //currentGameState = GameState.Lost;
         Debug.Log("Game Over");
     }
 
@@ -194,16 +184,17 @@ public class GameManager : MonoBehaviour
     {
         if (currentGameState == GameState.Lost || currentGameState == GameState.Won) return;
 
-        Time.timeScale = 1f;
         SetGameState(GameState.Won);
+        Time.timeScale = 0f;
+        dogSpawner?.StopAllCoroutines();
         
-        //currentGameState = GameState.Won;
         Debug.Log("Game Won");
     }
 
     public void PauseGame()
     {
-        if(currentGameState != GameState.Playing) return;
+        if(currentGameState != GameState.Playing && currentGameState != GameState.Pregame) return;
+        previousGameState = currentGameState;
         SetGameState(GameState.Paused);
         Time.timeScale = 0;
     }
@@ -211,7 +202,7 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         if (currentGameState != GameState.Paused) return;
-        SetGameState(GameState.Playing);
+        SetGameState(previousGameState);
         Time.timeScale = 1;
     }
 
