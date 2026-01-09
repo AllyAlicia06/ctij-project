@@ -33,6 +33,12 @@ public class GameManager : MonoBehaviour
     public event Action<int> OnCoinsChanged; //creeaza o actiune pe care o apelez cand se intampla ceva (cand apasam pe soricei)
     
     private bool IsGameEnded => currentGameState == GameState.Lost || currentGameState == GameState.Won; //asta e ca sa verificam daca s a terminat jocul, ca sa nu continue wave urile
+    
+    [Header("Music")]
+    [SerializeField] private AudioSource bgSource;
+    [SerializeField] private AudioClip bgMusic;
+    [SerializeField] private AudioSource stormSource;
+    [SerializeField] private AudioClip stormMusic;
 
     private void Awake()
     {
@@ -55,9 +61,43 @@ public class GameManager : MonoBehaviour
         Debug.Log("GameManager: Start");
         
         Time.timeScale = 1f;
+        InitMusic();
         Coins = defaultCoins;
         OnCoinsChanged?.Invoke(Coins);
         SetGameState(GameState.Pregame);
+    }
+
+    private void InitMusic()
+    {
+        if (bgSource != null && bgMusic != null)
+        {
+            bgSource.loop = true;
+            bgSource.clip = bgMusic;
+            bgSource.Play();
+        }
+
+        if (stormSource != null && stormMusic != null)
+        {
+            stormSource.loop = true;
+            stormSource.Stop();
+        }
+    }
+
+    private void UpdateMusic(GameState state)
+    {
+        if (stormSource == null || stormMusic == null || bgSource == null || bgMusic == null) return;
+
+        if (currentGameState == GameState.Storm)
+        {
+            if(bgSource.isPlaying) bgSource.Stop();
+            stormSource.clip = stormMusic;
+            if(!stormSource.isPlaying) stormSource.Play();
+        }
+        else if (stormSource.isPlaying)
+        {
+            stormSource.Stop();
+            if(!bgSource.isPlaying) bgSource.Play();
+        }
     }
 
     public void AddCoins(int amount)
@@ -85,6 +125,8 @@ public class GameManager : MonoBehaviour
 
         currentGameState = newState;
         OnGameStateChanged?.Invoke(currentGameState);
+        
+        UpdateMusic(currentGameState);
     }
 
     public void StartGameFromPregame()

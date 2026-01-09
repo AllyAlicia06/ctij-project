@@ -47,6 +47,9 @@ TagManager:
   - name: Mice
     uniqueID: 2295214393
     locked: 0
+  - name: Projectiles
+    uniqueID: 3946249349
+    locked: 0
   - name: Dogs
     uniqueID: 777186881
     locked: 0

@@ -14,7 +14,33 @@ public class MouseManager : MonoBehaviour
     [SerializeField] private float fallSpeed = 2f;
     
     private bool isStorming = false;
+    
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    private AudioClip clip;
 
+    private void Awake()
+    {
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+    }
+
+    private void PlayCollectSound()
+    {
+        if (clip == null && audioSource != null)
+            clip = audioSource.clip;
+
+        if (clip == null) return;
+        
+        var go = new GameObject("CollectSound");
+        var src = go.AddComponent<AudioSource>();
+        src.spatialBlend = 0f;
+        src.volume = 0.5f;
+        
+        src.PlayOneShot(clip);
+        Destroy(go, clip.length + 0.1f);
+    }
+    
     public void SetStorm(bool value)
     {
         isStorming = value;
@@ -83,6 +109,7 @@ public class MouseManager : MonoBehaviour
 
     private void Collect()
     {
+        PlayCollectSound();
         GameManager.Instance?.AddCoins(coinValue);
         Destroy(gameObject);
     }

@@ -21,11 +21,17 @@ public class Dog : MonoBehaviour
     public DogData Data => dogData;
     
     public ElementType ElementType => dogData != null ? dogData.elementType : ElementType.None;
+    
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
+        if(audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+        
         if (dogData != null)
         {
             Initialize(dogData, moveDirection);
@@ -109,7 +115,7 @@ public class Dog : MonoBehaviour
         hasReportedDeath = true;
         
         spawner?.OnDogDied();
-        Destroy(gameObject);
+        Destroy(gameObject, 0.05f);
     }
 
     public void TakeDamage(float amount, ElementType incomingElementType)
@@ -119,24 +125,35 @@ public class Dog : MonoBehaviour
         if (dogData != null && incomingElementType != ElementType.None &&
             incomingElementType == dogData.elementType) return;
         
+        PlayHitSound();
+
+        Debug.Log($"TakeDamage on {name} | amt={amount} | state={GameManager.Instance?.currentGameState} | " +
+                  $"listenerPause={AudioListener.pause} listenerVol={AudioListener.volume} | " +
+                  $"srcNull={(audioSource==null)} srcEnabled={(audioSource!=null && audioSource.enabled)} clip={(audioSource!=null ? audioSource.clip : null)}");
+        
         currentHealth -= amount;
         if (currentHealth <= 0f)
         {
             DieFromDamage();
         }
     }
-    
-    /*public void TakeDamage(float amount)
-    {
-        if (hasReportedDeath) return;
-        
-        currentHealth -= amount;
-        if (currentHealth <= 0)
-        {
-            DieFromDamage();
-        }
-    }*/
 
+    private void PlayHitSound() //am facut asta ca nu mergea varianta clasica de play audio clip
+    {
+        if (audioSource == null) return;
+        
+        AudioClip clip = audioSource.clip;
+        if (clip == null) return;
+        
+        var go = new GameObject("DogHitSound");
+        var src = go.AddComponent<AudioSource>();
+        src.spatialBlend = 0f;
+        src.volume = 0.5f;
+        
+        src.PlayOneShot(clip);
+        Destroy(go, clip.length + 0.1f);
+    }
+    
     public void TakeDamage(float amount)
     {
         TakeDamage(amount, ElementType.None);

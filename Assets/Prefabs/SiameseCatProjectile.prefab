@@ -81,8 +81,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -348717947
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -335037288478338532, guid: c24b981e825e9604eaed14ed90e65c9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -196,6 +196,7 @@ MonoBehaviour:
   pierce: 0
   dealDamageOnHit: 1
   destroyOnHit: 1
+  elementType: 0
 --- !u!114 &1566437577854962835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,3 +211,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FreezeOnHit
   slowMultiplier: 0.5
   duration: 2
+  elementType: 5
