@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Diagnostics;
 using UnityEngine;
@@ -8,8 +9,13 @@ public class EndSceneManager : MonoBehaviour
     [SerializeField] private GameObject thankYou;
     [SerializeField] private GameObject ourNames;
     
-    private float thankYouDuration = 5f;
-    
+    private float thankYouDuration = 3f;
+
+    private void Awake()
+    {
+        Time.timeScale = 1f;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

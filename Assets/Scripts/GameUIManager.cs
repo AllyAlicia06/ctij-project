@@ -116,12 +116,20 @@ public class GameUIManager : MonoBehaviour
 
     public void OnRetryButtonClicked()
     {
-        SceneManager.LoadScene("SampleScene");   
+        if(SceneManager.GetActiveScene().name == "SampleScene")
+            SceneManager.LoadScene("SampleScene");
+        
+        if(SceneManager.GetActiveScene().name == "SampleScene 1")
+            SceneManager.LoadScene("SampleScene 1");
     }
 
     public void OnNextLevelButtonClicked()
     {
-        SceneManager.LoadScene("SampleScene");
+        if(SceneManager.GetActiveScene().name == "SampleScene")
+            SceneManager.LoadScene("SampleScene 1");
+        
+        if(SceneManager.GetActiveScene().name == "SampleScene 1")
+            SceneManager.LoadScene("EndScene");
     }
     
     // Update is called once per frame
