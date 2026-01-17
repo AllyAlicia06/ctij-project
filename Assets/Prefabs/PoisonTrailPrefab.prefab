@@ -80,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1415653347
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -8536007176437183712, guid: 8c475f6c816516c4da42021c771b2723, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -106,8 +106,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PoisonTrailArea
   lifeTime: 2.5
-  dps: 50
+  dps: 20
   tick: 0.25
+  elementType: 7
 --- !u!61 &-604341428642384038
 BoxCollider2D:
   m_ObjectHideFlags: 0

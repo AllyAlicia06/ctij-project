@@ -130,11 +130,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MouseManager
   moveSpeed: 1
   laneEndX: -8
-  coinValue: 5
+  coinValue: 10
   laneEndY: -10
   fallSpeed: 2
   audioSource: {fileID: 5053336167198433192}
-  audioClip: {fileID: 0}
 --- !u!61 &-2157725248237021206
 BoxCollider2D:
   m_ObjectHideFlags: 0

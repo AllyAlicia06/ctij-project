@@ -229,7 +229,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 20
+  m_Text: 50
 --- !u!1 &321166505960916488
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,7 +2005,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 30
+  m_Text: 20
 --- !u!1 &3625836289703065470
 GameObject:
   m_ObjectHideFlags: 0
@@ -2794,7 +2794,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: 45
 --- !u!1 &4162217035989546456
 GameObject:
   m_ObjectHideFlags: 0
@@ -3390,7 +3390,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: 35
 --- !u!1 &4899782685964925668
 GameObject:
   m_ObjectHideFlags: 0
@@ -3827,7 +3827,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5
+  m_Text: 60
 --- !u!1 &5113879192939626597
 GameObject:
   m_ObjectHideFlags: 0
@@ -4122,7 +4122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f67bbe341428b4faf437cea8c2d6fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PregameCountdownUI
-  duration: 10
+  duration: 15
   countdownText: {fileID: 6071166488346622311}
 --- !u!1 &5448543918932231242
 GameObject:
@@ -5418,7 +5418,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 15
+  m_Text: 55
 --- !u!1 &8355271722425245023
 GameObject:
   m_ObjectHideFlags: 0
@@ -5760,7 +5760,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 15
+  m_Text: 100
 --- !u!1 &8913922646286083408
 GameObject:
   m_ObjectHideFlags: 0

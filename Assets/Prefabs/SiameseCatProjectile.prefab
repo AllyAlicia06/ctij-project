@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48ac131d303a15445b8411dfe5b81360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  lifeTime: 10
+  lifeTime: 4
   pierce: 0
   dealDamageOnHit: 1
   destroyOnHit: 1
@@ -209,6 +209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770bc31ba2fdbe5469e7bc5e46e1dd08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FreezeOnHit
-  slowMultiplier: 0.5
+  slowMultiplier: 0.4
   duration: 2
   elementType: 5

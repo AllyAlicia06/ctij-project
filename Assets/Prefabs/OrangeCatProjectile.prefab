@@ -192,10 +192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48ac131d303a15445b8411dfe5b81360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  lifeTime: 10
+  lifeTime: 4
   pierce: 0
-  dealDamageOnHit: 0
-  destroyOnHit: 0
+  dealDamageOnHit: 1
+  destroyOnHit: 1
   elementType: 0
 --- !u!114 &462586650544311102
 MonoBehaviour:
@@ -214,5 +214,5 @@ MonoBehaviour:
     m_Bits: 128
   radius: 1.5
   yTolerance: 0.25
-  aoeDamage: 100
+  aoeDamage: 20
   elementType: 1

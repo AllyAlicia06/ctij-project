@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32957311cf9fb0c4ca58801704ae98f0, type: 3}
+  m_Name: Wave_1
+  m_EditorClassIdentifier: Assembly-CSharp::WaveConfig
+  waveEntries:
+  - dogData: {fileID: 11400000, guid: 6d7059a3327f5c74891c92ee43cd4111, type: 2}
+    dogPrefab: {fileID: 897008886486687811, guid: 6553dd45432af3a4eb6dc7d3fd5cd489, type: 3}
+    spawnCount: 4
+    spawnInterval: 2.5
+  - dogData: {fileID: 0}
+    dogPrefab: {fileID: 0}
+    spawnCount: 0
+    spawnInterval: 0

@@ -5440,6 +5440,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 451462996}
     - target: {fileID: 2487895815375046007, guid: b060dcf122d1c97489b9d9f2db0215ab, type: 3}
+      propertyPath: pregameInterval
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2487895815375046007, guid: b060dcf122d1c97489b9d9f2db0215ab, type: 3}
       propertyPath: 'spawnPoints.Array.data[0]'
       value: 
       objectReference: {fileID: 1648010320}

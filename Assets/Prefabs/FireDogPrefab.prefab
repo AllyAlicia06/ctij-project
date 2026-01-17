@@ -85,7 +85,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 777186881
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 7736622989492849007, guid: f05904dc9b8acc54d8cda67227e0bb8a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493f1732e2c40724fb4efbc1347a9670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DogConfusion
-  hitDamage: 50
+  hitDamage: 10
   hitCooldown: 0.5
 --- !u!82 &-7428023075182401427
 AudioSource:

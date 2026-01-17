@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CatData
   sprite: {fileID: 7514304632314381675, guid: 0027c0f1ad1cd3242b4285a5ed2861a7, type: 3}
   catPrefab: {fileID: 8856195742200799892, guid: b43ccc13aec0e984fa44648257b340c0, type: 3}
-  cost: 15
+  cost: 100
   elementType: 6
   damage: 20
-  cooldown: 1
+  cooldown: 1.1
   projectilePrefab: {fileID: 3007372810751067173, guid: c492b289dcb54d244894d35d5f8e4adf, type: 3}
-  projectileSpeed: 5
-  specialShotCount: 5
+  projectileSpeed: 6
+  specialShotCount: 8
   specialShotPrefab: {fileID: 4111831946315516320, guid: e477d0c00728d2844aad7d6a2cbf38cd, type: 3}
-  specialShotSpeed: 5
-  projectileDamage: 100
+  specialShotSpeed: 7
+  projectileDamage: 999

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DogData
   sprite: {fileID: -6141455896513268206, guid: 6468e007ebc40fc4e9169122ada03c91, type: 3}
   elementType: 4
-  maxHealth: 10
-  moveSpeed: 1
+  maxHealth: 80
+  moveSpeed: 1.15
   baseDamage: 1

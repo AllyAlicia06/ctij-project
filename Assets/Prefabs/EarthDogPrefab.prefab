@@ -85,7 +85,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 777186881
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -8850321768940403323, guid: f193b130a74b74e4cbbcc90cb4ea32fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -135,7 +135,6 @@ MonoBehaviour:
   dogData: {fileID: 11400000, guid: 8f6fea2276e1ac04ea0449f1cd76f6cb, type: 2}
   laneEndX: -7.5
   audioSource: {fileID: -7289077922407611194}
-  hitClip: {fileID: 8300000, guid: a5ea4f4fcb2baa24c84a90c2537eaa1d, type: 3}
 --- !u!61 &-6128249389239882019
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -269,8 +268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493f1732e2c40724fb4efbc1347a9670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DogConfusion
-  hitDamage: 8
-  hitCooldown: 0.6
+  hitDamage: 10
+  hitCooldown: 0.5
 --- !u!82 &-7289077922407611194
 AudioSource:
   m_ObjectHideFlags: 0

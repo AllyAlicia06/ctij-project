@@ -5486,6 +5486,10 @@ PrefabInstance:
       value: Managers
       objectReference: {fileID: 0}
     - target: {fileID: 3659230160209397777, guid: b060dcf122d1c97489b9d9f2db0215ab, type: 3}
+      propertyPath: waveSet
+      value: 
+      objectReference: {fileID: 11400000, guid: eca17e4cd5717b74c88c74da13713ee0, type: 2}
+    - target: {fileID: 3659230160209397777, guid: b060dcf122d1c97489b9d9f2db0215ab, type: 3}
       propertyPath: bgSource
       value: 
       objectReference: {fileID: 1210983696}
@@ -5493,6 +5497,10 @@ PrefabInstance:
       propertyPath: stormSource
       value: 
       objectReference: {fileID: 392774524}
+    - target: {fileID: 3659230160209397777, guid: b060dcf122d1c97489b9d9f2db0215ab, type: 3}
+      propertyPath: defaultCoins
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 3659230160209397777, guid: b060dcf122d1c97489b9d9f2db0215ab, type: 3}
       propertyPath: waveProgressUI
       value: 

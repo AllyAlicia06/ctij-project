@@ -78,7 +78,7 @@ MonoBehaviour:
   waveSet: {fileID: 11400000, guid: b69fcc2c35b03c044a9a715c51f983df, type: 2}
   dogSpawner: {fileID: 4424810830359800284}
   waveProgressUI: {fileID: 0}
-  defaultCoins: 0
+  defaultCoins: 100
   bgSource: {fileID: 0}
   bgMusic: {fileID: 8300000, guid: 312f0f56857ff504d9cb6a2c1ec2b30c, type: 3}
   stormSource: {fileID: 0}
@@ -338,7 +338,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  pregameInterval: 0.6
-  playingInterval: 2
+  pregameInterval: 0.75
+  playingInterval: 1.8
   otherStatesInterval: -1
   stormInterval: 0.2

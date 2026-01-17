@@ -190,12 +190,12 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Rules at a Glance :\r\n->Protect the milk! One dog reaches it = game over.\r\n->Place
-    cats on the map. Free tile + coins = new cat.\r\n->Cats attack automatically.
-    Dog on the lane? Yarn incoming!\r\n->Click the mice! Small, fast, and\u2026 full
-    of money.\r\n->Not every yarn works on every dog. Some dogs are\u2026 immune.\r\n->Survive
-    all the waves to keep the milk safe.\r\n->Mouse Storm: it rains mice - click
-    frenzy!\r\n->Fire vs fire? Water vs water? Nope. Pick the right cat or the dogs
-    get the last bark"
+    cats on the map. Free tile + coins = new cat.\n->Right Click on a cat to make
+    it disappear.\r\n->Cats attack automatically. Dog on the lane? Yarn incoming!\r\n->Click
+    the mice! Small, fast, and\u2026 full of money.\r\n->Not every yarn works on
+    every dog. Some dogs are\u2026 immune.\r\n->Survive all the waves to keep the
+    milk safe.\r\n->Mouse Storm: it rains mice - click frenzy!\r\n->Fire vs fire?
+    Water vs water? Nope. Pick the right cat or the dogs get the last bark"
 --- !u!222 &86102186
 CanvasRenderer:
   m_ObjectHideFlags: 0

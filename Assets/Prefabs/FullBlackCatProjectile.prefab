@@ -192,10 +192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48ac131d303a15445b8411dfe5b81360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  lifeTime: 10
+  lifeTime: 4
   pierce: 1
   dealDamageOnHit: 0
-  destroyOnHit: 1
+  destroyOnHit: 0
   elementType: 0
 --- !u!114 &3141232076318937321
 MonoBehaviour:
@@ -210,4 +210,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnPoisonTrail
   poisonTrailPrefab: {fileID: 110723940210652755, guid: 126728dbe0ceecf43a8287c85264521b, type: 3}
-  spawnEvery: 0.12
+  spawnEvery: 0.25

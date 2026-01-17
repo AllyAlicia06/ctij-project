@@ -32,6 +32,7 @@ public class Tile : MonoBehaviour
 
     public void ClearPlaced()
     {
+        if (placed != null) Destroy(placed);
         placed = null;
     }
 

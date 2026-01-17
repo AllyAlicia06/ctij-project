@@ -39,8 +39,15 @@ public class CatPlacement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (selectedCat==null) return;
         if (Mouse.current == null) return;
+
+        if (Mouse.current.rightButton.wasPressedThisFrame)
+        {
+            TryRemoveCatUnderMouse();
+            return;
+        }
+        
+        if (selectedCat==null) return;
         if (!Mouse.current.leftButton.wasPressedThisFrame) return;
 
         if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
@@ -103,5 +110,25 @@ public class CatPlacement : MonoBehaviour
             GameManager.Instance.AddCoins(cost);
         }
 
+    }
+
+    private void TryRemoveCatUnderMouse()
+    {
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
+        
+        Vector2 screenPos = Mouse.current.position.ReadValue();
+        float depth = camera.orthographic ? 0f : Mathf.Abs(camera.transform.position.z);
+        Vector3 mousePos = camera.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, depth));
+        mousePos.z = 0f;
+        
+        Collider2D col = Physics2D.OverlapPoint(mousePos, tileLayer);
+        if (col == null) return;
+        
+        Tile tile = col.GetComponent<Tile>();
+        if (tile == null) return;
+
+        if (!tile.isOccupied) return;
+        
+        tile.ClearPlaced();
     }
 }
