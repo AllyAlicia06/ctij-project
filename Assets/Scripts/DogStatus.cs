@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class DogStatus : MonoBehaviour
 {
-    
     private Dog dog;
     private Coroutine slowCo;
     private Coroutine stunCo;
@@ -46,6 +45,7 @@ public class DogStatus : MonoBehaviour
         stunned = false;
         stunCo = null;
     }
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

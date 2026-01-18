@@ -55,7 +55,7 @@ public class MouseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-         if (isStorming)
+        if (isStorming)
         {
             transform.Translate(Vector3.down * fallSpeed * Time.deltaTime, Space.World);
             if (transform.position.y <= laneEndY) Destroy(gameObject);
@@ -64,34 +64,6 @@ public class MouseManager : MonoBehaviour
         {
             transform.Translate(Vector3.left * moveSpeed * Time.deltaTime, Space.World);
             if (transform.position.x <= laneEndX) Destroy(gameObject);
-        }
-    }
-
-    private void MoveLeft()
-    {
-        Vector3 delta = Vector3.left * moveSpeed * Time.deltaTime; //face soarecele sa se miste in directie
-        transform.Translate(delta, Space.World);
-    }
-
-    private void MoveDown()
-    {
-        Vector3 delta = Vector3.down * fallSpeed * Time.deltaTime;
-        transform.Translate(delta, Space.World);
-    }
-
-    private void CheckEndOfLane()
-    {
-        if (transform.position.x <= laneEndX)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private void CheckStormEnd()
-    {
-        if (transform.position.x <= laneEndY)
-        {
-            Destroy(gameObject);
         }
     }
 

@@ -10,6 +10,4 @@ public class DogData : ScriptableObject
     public ElementType elementType;
     public float maxHealth = 10f;
     public float moveSpeed = 5f;
-
-    public int baseDamage = 1;
 }

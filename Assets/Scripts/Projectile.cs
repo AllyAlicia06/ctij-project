@@ -13,8 +13,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private bool destroyOnHit = true;
     
     private List<Dog> dogsHit = new List<Dog>();
-    
-    [SerializeField] private ElementType elementType =  ElementType.None;
+    private ElementType elementType =  ElementType.None;
 
     private void Awake()
     {

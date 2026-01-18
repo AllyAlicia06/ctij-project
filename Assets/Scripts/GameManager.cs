@@ -22,9 +22,7 @@ public class GameManager : MonoBehaviour
     public GameState currentGameState { get; private set; } = GameState.Pregame;
     private GameState previousGameState = GameState.Pregame;
     public GameState PreviousGameState => previousGameState; //asta i ca sa nu se reseteze timer ul din pregame cand punem pauza
-
     public event Action<GameState> OnGameStateChanged;
-
     private int currentWaveIndex = 0;
 
     [Header("Coins")] [SerializeField] private int defaultCoins = 0;

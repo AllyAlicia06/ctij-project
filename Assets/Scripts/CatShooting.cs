@@ -14,15 +14,11 @@ public class CatShooting : MonoBehaviour
 
     private float nextShootTime;
     private int shotsFired = 0;
+    private int normalShotsSinceSpecial = 0;
 
     private void Awake()
     {
         if (firePoint == null) firePoint = transform;
-    }
-
-    public void Initialize(CatData data)
-    {
-        catData = data;
     }
 
     private void Update()
@@ -43,7 +39,6 @@ public class CatShooting : MonoBehaviour
     private bool HasDogInMyLane()
     {
         Vector2 origin = firePoint.position;
-        
         Vector2 center = origin + Vector2.right * (scanRange * 0.5f);
         Vector2 size = new Vector2(scanRange, yTolerance * 2f);
 
@@ -66,9 +61,9 @@ public class CatShooting : MonoBehaviour
         return false;
     }
 
-    private int normalShotsSinceSpecial = 0;
     private void Shoot()
-    {bool fireSpecial =
+    {
+        bool fireSpecial =
             catData.specialShotCount > 0 &&
             catData.specialShotPrefab != null &&
             normalShotsSinceSpecial >= catData.specialShotCount;
@@ -95,17 +90,6 @@ public class CatShooting : MonoBehaviour
             proj.Init(speed, damage, catData.elementType);
         else
             Debug.LogError("Projectile prefab is missing Projectile script.");
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (firePoint == null) return;
-
-        Vector2 origin = firePoint.position;
-        Vector2 center = origin + Vector2.right * (scanRange * 0.5f);
-        Vector2 size = new Vector2(scanRange, yTolerance * 2f);
-
-        Gizmos.DrawWireCube(center, size);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

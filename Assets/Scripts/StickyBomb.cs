@@ -70,11 +70,6 @@ public class StickyBomb : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(transform.position, slowRadius);
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

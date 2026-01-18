@@ -35,13 +35,7 @@ public class FireBurstOnHit : MonoBehaviour
 
         Destroy(gameObject);
     }
-
-    private void OnDrawGizmosSelected()
-    {
-        Vector2 center = transform.position;
-        Vector2 size = new Vector2(radius * 2f, yTolerance * 2f);
-        Gizmos.DrawWireCube(center, size);
-    }
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
